@@ -1,11 +1,11 @@
 {
   "extensionDescription": {
     "description": "Extension description",
-    "message": "Chrome extension boilerplate developed with Vite, React and Typescript"
+    "message": "Bulk download your Amazon Seller Fee invoices with one click."
   },
   "extensionName": {
     "description": "Extension name",
-    "message": "Chrome extension boilerplate"
+    "message": "Amazon Seller Fee Invoice Exporter by Staxxer"
   },
   "toggleTheme": {
     "message": "Toggle theme"
