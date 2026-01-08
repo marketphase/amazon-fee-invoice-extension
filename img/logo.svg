@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Component_27_1"
+   data-name="Component 27 – 1"
+   width="150"
+   height="150"
+   viewBox="0 0 150.00001 150.00001"
+   version="1.1"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.2 (1:1.2.1+202207142221+cd75a1ee6d)"
+   inkscape:export-filename="logo.png"
+   inkscape:export-xdpi="163.84"
+   inkscape:export-ydpi="163.84"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.5089639"
+     inkscape:cx="19.516679"
+     inkscape:cy="86.050811"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Component_27_1" />
+  <rect
+     style="fill:#5736e3;fill-opacity:1;stroke-width:47.6752;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke markers fill"
+     id="rect2372"
+     width="150"
+     height="150"
+     x="0"
+     y="0"
+     rx="26.66394"
+     ry="26.66394" />
+  <g
+     id="g3239"
+     transform="translate(-6.9320055)">
+    <path
+       id="Path_10559"
+       data-name="Path 10559"
+       d="M 82.390168,100.42369 H 69.650189 L 56.04184,81.382974 42.320978,100.42369 H 29.690631 L 49.833411,72.549232 33.172776,49.576309 H 46.129124 L 56.038956,63.839543 66.05553,49.576309 H 78.902249 L 62.244501,72.549232 Z"
+       fill="#fff"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:2.88496" />
+    <g
+       id="g3232">
+      <path
+         id="Path_10560"
+         data-name="Path 10560"
+         d="M 97.589225,99.976524 H 84.958877 l 36.364903,-50.84739 h 12.8496 z"
+         fill="#fff"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:2.88496" />
+      <circle
+         id="Ellipse_609"
+         data-name="Ellipse 609"
+         cx="94.614845"
+         cy="57.509937"
+         r="8.3029099"
+         fill="#fff"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:2.88496" />
+      <circle
+         id="Ellipse_610"
+         data-name="Ellipse 610"
+         cx="125.22427"
+         cy="92.567955"
+         r="8.3029099"
+         fill="#fff"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:2.88496" />
+    </g>
+  </g>
+</svg>
