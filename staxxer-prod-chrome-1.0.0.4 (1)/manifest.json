@@ -1,14 +1,11 @@
 {
-	"name": "Amazon Seller Fee Invoice Exporter by Staxxer",
-	"description": "Bulk download your Amazon Seller Fee invoices with one click.",
-	"version": "1.0.1.1",
+	"name": "Staxxer",
+	"description": "This extension is a tool for downloading your Amazon Seller Fee invoices",
+	"version": "1.0.0.4",
 	"manifest_version": 3,
 	"action": {
 		"default_icon": "/img/logo.png",
-		"default_popup": "/pages/extension_popup/index.html"
-	},
-	"background": {
-		"service_worker": "/js/extension_background.js"
+		"default_popup": "/pages/popup/index.html"
 	},
 	"icons": {
 		"128": "/img/logo.png"
@@ -18,7 +15,6 @@
 			"run_at": "document_idle",
 			"all_frames": false,
 			"matches": [
-				"https://sellercentral.amazon.com.be/tax/seller-fee-invoices",
 				"https://sellercentral.amazon.com.au/tax/seller-fee-invoices",
 				"https://sellercentral.amazon.com.br/tax/seller-fee-invoices",
 				"https://sellercentral.amazon.ca/tax/seller-fee-invoices",
@@ -45,13 +41,11 @@
 				"https://sellercentral.amazon.vn/tax/seller-fee-invoices"
 			],
 			"js": [
-				"/js/extension_content.js"
+				"/js/content.js"
 			]
 		}
 	],
-	"permissions": [
-		"storage"
-	],
+	"permissions": [],
 	"host_permissions": [],
 	"web_accessible_resources": [
 		{
