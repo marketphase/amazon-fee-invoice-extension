@@ -77,6 +77,7 @@ export default function App() {
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState({ current: 0, total: 0 });
+  const [downloadResult, setDownloadResult] = useState<{ success: number; failed: string[] } | null>(null);
   const [marketplaceFilter, setMarketplaceFilter] = useState<string>('');
   const [startDateFilter, setStartDateFilter] = useState<string>('');
   const [endDateFilter, setEndDateFilter] = useState<string>('');
@@ -144,6 +145,7 @@ export default function App() {
     const invoicesToDownload = filteredInvoices;
 
     setIsDownloading(true);
+    setDownloadResult(null);
     setDownloadProgress({ current: 0, total: invoicesToDownload.length });
 
     const pdfFiles: { [filename: string]: Uint8Array } = {};
@@ -204,8 +206,10 @@ export default function App() {
       }
     }
 
-    // Create ZIP file
-    if (Object.keys(pdfFiles).length > 0) {
+    // Create ZIP file if we have any successful downloads
+    const successCount = Object.keys(pdfFiles).length;
+
+    if (successCount > 0) {
       try {
         const zipData = zipSync(pdfFiles);
         const blob = new Blob([zipData.buffer], { type: 'application/zip' });
@@ -219,18 +223,13 @@ export default function App() {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-
-        if (errors.length > 0) {
-          alert(`Downloaded ${Object.keys(pdfFiles).length} invoices. Failed: ${errors.join(', ')}`);
-        }
       } catch (zipError) {
         console.error('[Staxxer] Failed to create ZIP:', zipError);
-        alert('Failed to create ZIP file');
       }
-    } else {
-      alert(`Failed to download any invoices. Errors: ${errors.join(', ')}`);
     }
 
+    // Show result in UI
+    setDownloadResult({ success: successCount, failed: errors });
     setIsDownloading(false);
   };
 
@@ -412,6 +411,48 @@ export default function App() {
               : `Download ${filteredInvoices.length} as ZIP`
             }
           </button>
+
+          {/* Download Result */}
+          {downloadResult && downloadResult.failed.length > 0 && (
+            <div style={{
+              marginTop: '12px',
+              padding: '12px',
+              backgroundColor: '#fef9e7',
+              border: '1px solid #f4d03f',
+              borderRadius: '6px',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#b7950b" width="20" height="20" style={{ flexShrink: 0 }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                </svg>
+                <div>
+                  <div style={{ fontWeight: 600, color: '#b7950b', marginBottom: '4px', fontSize: '13px' }}>
+                    Some invoices could not be downloaded
+                  </div>
+                  <div style={{ fontSize: '12px', color: '#9a7d0a', lineHeight: 1.5 }}>
+                    {downloadResult.success > 0 && (
+                      <span>{downloadResult.success} invoice{downloadResult.success !== 1 ? 's' : ''} downloaded. </span>
+                    )}
+                    {downloadResult.failed.length} failed due to Amazon server errors: {downloadResult.failed.join(', ')}
+                  </div>
+                  <button
+                    onClick={() => setDownloadResult(null)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: 0,
+                      marginTop: '8px',
+                      color: '#b7950b',
+                      fontSize: '12px',
+                      textDecoration: 'underline',
+                    }}>
+                    Dismiss
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Invoice List */}
