@@ -1,4 +1,4 @@
-ddd<div align="center">
+<div align="center">
 
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/99cb6303-64e4-4bed-bf3f-35735353e6de" />
