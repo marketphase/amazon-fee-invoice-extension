@@ -59,7 +59,7 @@ const Popup = () => (
             <span>
               Go to{' '}
               <a
-                href="https://sellercentral.amazon.com/tax/seller-fee-invoices"
+                href="https://sellercentral.amazon.de/tax/seller-fee-invoices"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link">
